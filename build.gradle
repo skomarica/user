@@ -1,0 +1,40 @@
+buildscript {
+	ext {
+		springBootVersion = '1.5.8.RELEASE'
+	}
+	repositories {
+		mavenCentral()
+	}
+	dependencies {
+		classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+	}
+}
+
+apply plugin: 'java'
+apply plugin: 'eclipse'
+apply plugin: 'jacoco'
+apply plugin: 'org.springframework.boot'
+
+group = 'io.github.skomarica.practice'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = 1.8
+
+repositories {
+	mavenCentral() 
+}
+
+dependencies {
+    // spring boot
+    compile('org.springframework.boot:spring-boot-starter-web')
+	compile('org.springframework.boot:spring-boot-starter-data-jpa')
+
+    // database
+	compile('org.liquibase:liquibase-core')
+	runtime('com.h2database:h2')
+
+    // commons
+    compile('org.projectlombok:lombok')
+
+    // test
+    testCompile('org.springframework.boot:spring-boot-starter-test')
+}
