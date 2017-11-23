@@ -55,6 +55,7 @@ public class UserControllerIntegrationTest {
 
     @Test
     public void getUsersShouldReturnOkAndAllUsers() {
+
         ResponseEntity<RestResponsePage<User>> response = this.restTemplate.exchange(
                 "/users", HttpMethod.GET, null, responseTypeRef);
 
@@ -93,6 +94,7 @@ public class UserControllerIntegrationTest {
 
     @Test
     public void getUserShouldReturnOkAndUser() throws Exception {
+
         final ResponseEntity<User> responseEntity = restTemplate.getForEntity(
                 "/users/{id}", User.class, 1);
 
@@ -112,6 +114,7 @@ public class UserControllerIntegrationTest {
 
     @Test
     public void getUserWhenIdDoesNotExistShouldReturnNotFound() throws Exception {
+
         final ResponseEntity<RestError> responseEntity = restTemplate.getForEntity(
                 "/users/{id}", RestError.class, 6);
 
@@ -254,6 +257,7 @@ public class UserControllerIntegrationTest {
 
     @Test
     public void deleteShouldReturnNoContent() {
+
         ResponseEntity<Void> response = this.restTemplate.exchange(
                 "/users/{id}", HttpMethod.DELETE, null, Void.class, 5);
 
@@ -270,6 +274,7 @@ public class UserControllerIntegrationTest {
 
     @Test
     public void deleteWhenIdDoesNotExistShouldReturnNotFound() {
+
         ResponseEntity<Void> response = this.restTemplate.exchange(
                 "/users/{id}", HttpMethod.DELETE, null, Void.class, 6);
 

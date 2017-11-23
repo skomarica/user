@@ -16,14 +16,14 @@ public class ErrorHandler {
     @ExceptionHandler(IllegalArgumentException.class)
     @ResponseStatus(HttpStatus.BAD_REQUEST)
     @ResponseBody
-    public RestError handleIllegalArguments(IllegalArgumentException ex) {
+    public RestError handleIllegalArgument(IllegalArgumentException ex) {
         return new RestError(ex.getMessage());
     }
 
     @ExceptionHandler(NotFoundException.class)
     @ResponseStatus(HttpStatus.NOT_FOUND)
     @ResponseBody
-    public RestError handleNotFound(Exception ex) {
+    public RestError handleNotFound(NotFoundException ex) {
         return new RestError(ex.getMessage());
     }
 
